@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — Piennolo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="./piennolo-assets/tomate-piennolo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Bontang';
+  src: url('./piennolo-assets/Bontang.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  background: #F9F7E9;
+  color: #05202E;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+a { color: #D8502A; }
+
+/* Nav sticky */
+nav {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: #434D37;
+  border-radius: 300px;
+  padding: 8px;
+  box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+}
+.nav-links-group {
+  display: flex; flex-direction: row;
+  align-items: center; gap: 40px;
+  margin: 0 40px;
+}
+.nav-link {
+  font-family: 'Bontang', sans-serif;
+  font-size: 16px; font-weight: 300;
+  text-transform: uppercase; color: white;
+  text-decoration: none; white-space: nowrap;
+  line-height: 1.2; letter-spacing: 0.04em;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+  height: 100%;
+}
+.nav-link .underline {
+  height: 1px; width: 100%;
+  background: rgba(255,255,255,0.7);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 240ms ease;
+}
+.nav-link span:first-child { transition: transform 240ms ease; }
+.nav-link:hover span:first-child { transform: translateY(-2px); }
+.nav-link:hover .underline { transform: scaleX(1); }
+.nav-btn {
+  background: #F9F7E9; border: none;
+  border-radius: 300px; padding: 0 20px;
+  height: 48px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: 'Bontang', sans-serif;
+  font-size: 18px; font-weight: 400;
+  text-transform: uppercase; color: #434D37;
+  white-space: nowrap; text-decoration: none;
+  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+.nav-btn:hover { background: #D8502A; color: #F9F7E9; transform: translateY(-1px); }
+.nav-btn svg { display: inline-block; width: 16px; height: 16px; }
+
+/* Header */
+.ml-header {
+  padding: 60px 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.ml-logo img {
+  height: 80px;
+  width: auto;
+}
+.ml-logo-sub {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6C7C59;
+  margin-top: -28px;
+  text-align: center;
+  width: 200px;
+}
+.ml-main-title {
+  font-family: 'Bontang', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  color: #D8502A;
+  text-transform: uppercase;
+  line-height: 1;
+  border-bottom: 2px solid #05202E;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+/* Content */
+.ml-content {
+  padding: 48px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.ml-section h2 {
+  font-family: 'Bontang', sans-serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: #05202E;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(5,32,46,0.15);
+  line-height: 1.2;
+}
+.ml-section p {
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: #05202E;
+}
+.ml-section p + p { margin-top: 1em; }
+.ml-section a { color: #D8502A; }
+.ml-section strong { font-weight: 600; }
+
+/* Footer — copie exacte de piennolo.html */
+footer {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #1f140d;
+}
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.footer-bg img {
+  width: 100%; height: calc(100% + 120px); margin-top: -60px;
+  object-fit: cover;
+  object-position: center;
+}
+.footer-bg-overlay { display: none; }
+.footer-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 80px 40px 0;
+}
+.footer-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 32px;
+}
+.footer-title {
+  font-family: 'Bontang', sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+}
+.footer-insta-btn {
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: #6c7c59;
+  border-radius: 9999px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.footer-insta-btn svg { width: 28px; height: 28px; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.footer-insta-btn:hover svg { transform: scale(1.25); }
+.footer-bar {
+  position: relative;
+  z-index: 1;
+  height: 74px;
+  padding: 0 40px;
+  margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+.footer-bar-logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+.footer-links {
+  display: flex; gap: 40px;
+  list-style: none;
+}
+.footer-links a {
+  font-family: 'Geist', 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 400;
+  color: white; text-decoration: none;
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.footer-links a:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ml-header { padding: 32px 20px 0; gap: 24px; }
+  .ml-content { padding: 32px 20px 80px; gap: 36px; }
+  nav { bottom: 2px; }
+  .nav-links-group { gap: 28px; }
+  .nav-link { font-size: 14px; }
+  .nav-btn { height: 44px; padding: 0 14px; font-size: 14px; }
+  footer { height: 800px; }
+  .footer-content {
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-title-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 0;
+  }
+  .footer-title { font-size: 40px; text-align: center; }
+  .footer-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 20px 80px;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .footer-bar-logo img { height: 48px; }
+  .footer-links { gap: 24px; flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="ml-header">
+  <a class="ml-logo" href="./piennolo.html">
+    <img src="./piennolo-assets/logo-piennolo-vert.svg" alt="Piennolo">
+  </a>
+  <h1 class="ml-main-title">Mentions légales</h1>
+</div>
+
+<main class="ml-content" id="ml-content">
+  <section class="ml-section">
+    <h2>Informations légales</h2>
+    <p>La simple utilisation et/ou consultation du site <a href="https://www.legrandpan.fr">www.legrandpan.fr</a>, le <a href="https://www.piennolo-paris.fr">www.piennolo-paris.fr</a> ou <a href="https://www.lasuitedugrandpan.fr">www.lasuitedugrandpan.fr</a> implique, de façon automatique et inconditionnelle, votre acceptation pleine et entière de l'ensemble des présentes conditions d'utilisation.</p>
+    <p>Les informations en consultation sur ce site sont proposées sous réserve d'erreur, d'inexactitude ou d'omission affectant les informations. Elles peuvent faire l'objet de modification ou de suppression à tout moment et sans préavis ni indemnités quelconques.</p>
+  </section>
+
+  <section class="ml-section">
+    <h2>Responsabilité</h2>
+    <p>De manière générale, le Grand Pan, Le Petit Pan et La Suite du Grand Pan ne peuvent être tenus pour responsables de quelque nature que ce soit affectant la diffusion de son site. Le Grand Pan, Le Petit Pan et La Suite du Grand Pan se réservent la possibilité de modifier, d'interrompre temporairement ou de façon permanente, tout ou partie de son site, sans préavis ni indemnité quelconques. Elle ne pourra en aucun cas être tenue pour responsable à votre encontre ou à l'encontre d'un tiers de toute modification, interruption, suspension ou suppression du site.</p>
+    <p>L'utilisation des informations contenues sur le présent site relève de la seule responsabilité de son utilisateur. Toutes les ressources contenues dans ce site, textes, visuels et illustrations (schémas, dessins, photographies et animations) sont communiquées à titre purement informatif et ne peuvent en rien engager la responsabilité de l'agence.</p>
+    <p>Le Grand Pan, Le Petit Pan et La Suite du Grand Pan ne saurait être tenus responsables d'un dommage ou virus qui pourrait infecter votre ordinateur ou tout matériel informatique, suite à une utilisation ou accès au site ou téléchargement provenant de ce site.</p>
+  </section>
+
+  <section class="ml-section">
+    <h2>Crédits</h2>
+    <p><strong>Conception et réalisation graphique :</strong> agence Glucoz <a href="https://www.glucoz.fr">www.glucoz.fr</a> – 31 rue du Caire – 75002 Paris – 01 45 41 11 15</p>
+    <p><strong>Développement :</strong> fièrement propulsé avec Roz by <a href="https://www.glucoz.fr">Glucoz</a></p>
+    <p><strong>Rédaction :</strong> agence Glucoz <a href="https://www.glucoz.fr">www.glucoz.fr</a></p>
+    <p><strong>Crédits photographiques :</strong> ©Pierre Lucet Penato</p>
+    <p>Conformément à l'article 34 de la Loi « Informatique et Libertés » n° 78-17 du 6 janvier 1978, vous disposez d'un droit d'accès, de modification, de rectification et de suppression des données qui vous concernent. Vous pouvez à tout moment vous opposer gratuitement et sans motif à l'utilisation des données que vous avez fournies. Pour exercer ce droit, envoyez un mail à <a href="mailto:contact@legrandpan.fr">contact@legrandpan.fr</a></p>
+    <p>Pour plus d'informations, veuillez consulter le site de la CNIL : <a href="https://www.cnil.fr">www.cnil.fr</a></p>
+  </section>
+
+  <section class="ml-section">
+    <h2>Éditeur et responsable de la communication</h2>
+    <p><strong>Benoit Gauthier Courriel :</strong> <a href="mailto:contact@legrandpan.fr">contact@legrandpan.fr</a></p>
+  </section>
+</main>
+
+<nav>
+  <div class="nav-links-group">
+    <a class="nav-link" href="./piennolo.html#specialites"><span>Menu</span><span class="underline"></span></a>
+    <a class="nav-link" href="./piennolo.html#horaires"><span>Adresse</span><span class="underline"></span></a>
+  </div>
+  <a class="nav-btn" href="https://www.google.com/maps/reserve/v/dine/c/Qj06-Yg_K9c?source=pa&opi=89978449&hl=fr-FR" target="_blank" rel="noopener noreferrer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#434D37" d="M19.5 3H17.25V2.25C17.25 2.05109 17.171 1.86032 17.0303 1.71967C16.8897 1.57902 16.6989 1.5 16.5 1.5C16.3011 1.5 16.1103 1.57902 15.9697 1.71967C15.829 1.86032 15.75 2.05109 15.75 2.25V3H8.25V2.25C8.25 2.05109 8.17098 1.86032 8.03033 1.71967C7.88968 1.57902 7.69891 1.5 7.5 1.5C7.30109 1.5 7.11032 1.57902 6.96967 1.71967C6.82902 1.86032 6.75 2.05109 6.75 2.25V3H4.5C4.10218 3 3.72064 3.15804 3.43934 3.43934C3.15804 3.72064 3 4.10218 3 4.5V19.5C3 19.8978 3.15804 20.2794 3.43934 20.5607C3.72064 20.842 4.10218 21 4.5 21H19.5C19.8978 21 20.2794 20.842 20.5607 20.5607C20.842 20.2794 21 19.8978 21 19.5V4.5C21 4.10218 20.842 3.72064 20.5607 3.43934C20.2794 3.15804 19.8978 3 19.5 3Z"/></svg>
+    Réserver
+  </a>
+</nav>
+
+<footer>
+  <div class="footer-bg">
+    <img src="./piennolo-assets/img-footer.png" alt="" loading="lazy" />
+    <div class="footer-bg-overlay"></div>
+  </div>
+  <div class="footer-content">
+    <div class="footer-title-row">
+      <h2 class="footer-title">Suivez-nous&nbsp;!</h2>
+      <a class="footer-insta-btn" href="https://www.instagram.com/piennolo_paris/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="footer-bar-logo">
+      <img src="./piennolo-assets/logo-piennolo.svg" alt="Piennolo" />
+    </div>
+    <ul class="footer-links">
+      <li><a href="./mentions-legales.html">Mentions légales</a></li>
+      <li><a href="mailto:contact@legrandpan.fr">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// CMS loader pour mentions légales
+(function(){
+  var preview = new URLSearchParams(window.location.search).get('preview') === '1';
+  var dir = preview ? './content/preview/' : './content/';
+
+  window.addEventListener('message', function(e){
+    if(e.data && e.data.type === 'cms-preview' && e.data.data.mentions){
+      applyMentions(e.data.data.mentions);
+    }
+  });
+
+  fetch(dir + 'mentions.json?v=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(data){ applyMentions(data); })
+    .catch(function(){});
+
+  function applyMentions(data){
+    if(!data || !data.sections) return;
+    var main = document.getElementById('ml-content');
+    if(!main) return;
+    main.innerHTML = data.sections.map(function(s){
+      return '<section class="ml-section"><h2>' + s.titre + '</h2>' + s.contenu + '</section>';
+    }).join('');
+  }
+})();
+</script>
+</body>
+</html>
