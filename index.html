@@ -2264,7 +2264,7 @@ footer {
       <div class="chef-photo-overlay"></div>
     </div>
     <div class="chef-video-wrap">
-      <video class="chef-video" autoplay muted loop playsinline preload="none">
+      <video class="chef-video" muted loop playsinline preload="none">
         <source src="./piennolo-assets/video-preparation.mp4" type="video/mp4">
       </video>
     </div>
@@ -2298,7 +2298,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-bg">
-    <img src="./piennolo-assets/img-footer.png" alt="" loading="lazy" width="1920" height="1080" />
+    <img src="./piennolo-assets/img-footer.webp" alt="" loading="lazy" width="1920" height="1080" />
     <div class="footer-bg-overlay"></div>
   </div>
   <div class="footer-content">
@@ -2617,5 +2617,15 @@ footer {
 })();
 </script>
 <script src="./cms-loader.js" defer></script>
+<script>
+(function(){
+  var v=document.querySelector(".chef-video");
+  if(!v)return;
+  var o=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){v.play();o.disconnect();}
+  },{threshold:0.1});
+  o.observe(v);
+})();
+</script>
 </body>
 </html>
